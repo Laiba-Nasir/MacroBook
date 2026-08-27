@@ -43,5 +43,9 @@
     "typescript": "^5.9.3",
     "vite": "^7.2.6"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Laiba-Nasir/MacroBook.git"
+  }
 }

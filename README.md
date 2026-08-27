@@ -71,7 +71,7 @@ completely fresh.
 Requires [Node.js](https://nodejs.org) 20 or newer.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/MacroBook.git
+git clone https://github.com/Laiba-Nasir/MacroBook.git
 cd MacroBook
 npm install
 npm run dev

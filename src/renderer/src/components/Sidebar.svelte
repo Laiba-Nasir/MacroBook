@@ -50,10 +50,7 @@
        The initial stands in for an avatar so there's no image to host. -->
   <button class="user" onclick={() => onnavigate('goals')} title="Edit in Goals">
     <span class="avatar">{username.charAt(0).toUpperCase()}</span>
-    <span class="who">
-      <span class="username">{username}</span>
-      <span class="status">Edit profile</span>
-    </span>
+    <span class="username">{username}</span>
   </button>
 </aside>
 
@@ -165,19 +162,11 @@
     flex-shrink: 0;
   }
 
-  .who {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.25;
-  }
-
   .username {
     font-size: 12.5px;
     font-weight: 600;
-  }
-
-  .status {
-    font-size: 11px;
-    color: var(--text-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>

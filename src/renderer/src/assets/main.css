@@ -1,0 +1,18 @@
+@import './base.css';
+
+/*
+ * The scaffold styled <body> as a centred splash (flex centring,
+ * overflow:hidden, user-select:none, a decorative background image).
+ * All of that is wrong for a real app: it needs to scroll and its text
+ * needs to be selectable. The app shell layout itself lives in
+ * App.svelte so it can be scoped.
+ */
+body {
+  display: block;
+  overflow: hidden; /* the content column scrolls, not the whole window */
+  user-select: auto;
+}
+
+#app {
+  height: 100vh;
+}

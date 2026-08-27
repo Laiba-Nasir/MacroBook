@@ -1,0 +1,171 @@
+/*
+ * MacroBook design tokens — LIGHT theme.
+ * (Replaces the scaffold's dark palette entirely.)
+ *
+ * The macro colour code is defined once here and used everywhere:
+ * Today's cards, the log chips, Foods rows, History pills, Trends.
+ * Never hard-code these colours in a component.
+ */
+:root {
+  /* Surfaces */
+  --bg: #f5f7f5;
+  --surface: #ffffff;
+  --surface-hover: #fafbfa;
+  --border: #e6e9e6;
+  --border-strong: #d4d9d4;
+
+  /* Text */
+  --text: #16191a;
+  --text-2: #5f6a64;
+  --text-3: #8d968f;
+
+  /* Brand / primary action */
+  --green: #16a34a;
+  --green-hover: #15833e;
+  --green-soft: #e7f5ec;
+  --green-text: #15803d;
+
+  /* Macro colour code */
+  --cal: #16a34a;
+  --cal-bg: #dcfce7;
+  --protein: #4f46e5;
+  --protein-bg: #e0e7ff;
+  --carbs: #b45309;
+  --carbs-bg: #fef3c7;
+  --fat: #be185d;
+  --fat-bg: #fce7f3;
+
+  /* Status */
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+  --warn: #ea580c;
+  --warn-bg: #ffedd5;
+
+  --radius: 10px;
+  --radius-sm: 7px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Tabular numbers keep macro columns from jittering as values change. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Shared button styles. Global (not component-scoped) so every page and
+ * modal uses the same two buttons instead of restyling them locally.
+ */
+.primary {
+  background: var(--green);
+  color: #fff;
+  border: 1px solid var(--green);
+  border-radius: var(--radius-sm);
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--green-hover);
+  border-color: var(--green-hover);
+}
+
+.primary:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ghost {
+  background: var(--surface);
+  color: var(--text-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.ghost:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+/*
+ * DARK THEME
+ * Only the tokens are redefined — no component restyling. Because every
+ * component reads var(--surface), var(--protein) and so on, the whole
+ * app re-themes from this one block.
+ * Applied by setting data-theme="dark" on <html> (see theme.ts).
+ */
+:root[data-theme='dark'] {
+  --bg: #14171a;
+  --surface: #1b1f22;
+  --surface-hover: #232a2e;
+  --border: #2b3236;
+  --border-strong: #3c454a;
+
+  --text: #e7ede9;
+  --text-2: #a1aea6;
+  --text-3: #75827a;
+
+  --green: #22a559;
+  --green-hover: #2bbd66;
+  --green-soft: #16331f;
+  --green-text: #4ade80;
+
+  /* Macro colours lighten so they stay legible on dark surfaces,
+     while keeping the same hue identity. */
+  --cal: #4ade80;
+  --cal-bg: #15331f;
+  --protein: #a5b4fc;
+  --protein-bg: #1f2350;
+  --carbs: #fbbf24;
+  --carbs-bg: #3a2a09;
+  --fat: #f9a8d4;
+  --fat-bg: #3d1029;
+
+  --danger: #f87171;
+  --danger-bg: #3a1616;
+  --warn: #fb923c;
+  --warn-bg: #3a230d;
+}

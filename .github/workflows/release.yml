@@ -48,7 +48,10 @@ jobs:
       # Runs typecheck + electron-vite build + electron-builder.
       # better-sqlite3 needs no rebuild step: it's a Node-API addon and
       # ships prebuilt binaries for every platform in this matrix.
-      - run: npm run ${{ matrix.script }}
+      # `--publish never` is load-bearing: a git tag makes electron-builder
+      # try to publish on its own, which fails on Linux (it reaches for the
+      # Snap Store). Uploading is this workflow's job, not the builder's.
+      - run: npm run ${{ matrix.script }} -- --publish never
 
       - name: Attach installers to the release
         if: startsWith(github.ref, 'refs/tags/')
